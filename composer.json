@@ -1,0 +1,27 @@
+{
+    "name": "furqat/laravel-telegram-api",
+    "description": "Laravel telegram api",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Furqat\\LaravelTelegramApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "FurqatMashrabjonov"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "\\Furqat\\LaravelTelegramApi\\LaravelTelegramApiServiceProvider"
+            ],
+            "aliases": {
+                "LaravelTelegamApi": "Furqat\\LaravelTelegramApi\\LaravelTelegramApi"
+            }
+        }
+    }
+}
