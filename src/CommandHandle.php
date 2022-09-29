@@ -17,10 +17,17 @@ class CommandHandle
     public function handle()
     {
         $command_class = 'App\\Telegram\\Commands\\' . ucfirst($this->command);
-//        Log::debug('App\\Telegram\\Commands\\' . ucfirst($this->command));
-        if (class_exists($command_class)) {
-            (new $command_class())->handle();
-        }
-    }
 
+        if (!class_exists($command_class)) {
+            if (isset(config('telegram.commands')[$this->command])) {
+                $command_class = config('telegram.commands')[$this->command];
+            } else {
+                Log::debug('Class not found');
+                return;
+            }
+        }
+        Log::debug($command_class);
+//        (new $command_class())->handle();
+
+    }
 }
