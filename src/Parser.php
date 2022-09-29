@@ -21,8 +21,7 @@ class Parser
     {
         $text = $this->request['message']['text'];
         if ($text[0] == '/') {
-            Log::debug('command ekan:  ' . $text);
-            (new CommandHandle(substr($text, 1)))->handle();
+            (new CommandHandle(substr($text, 1), $this->request['message']))->handle();
         }
 
     }

@@ -8,12 +8,17 @@ class CommandHandle
 {
 
     protected $command;
+    public $message;
 
-    public function __construct($command)
+    public function __construct($command, $message)
     {
+        $this->message = $message;
         $this->command = $command;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function handle()
     {
         $command_class = 'App\\Telegram\\Commands\\' . ucfirst($this->command);
@@ -22,12 +27,11 @@ class CommandHandle
             if (isset(config('telegram.commands')[$this->command])) {
                 $command_class = config('telegram.commands')[$this->command];
             } else {
-                Log::debug('Class not found');
-                return;
+//                Log::debug('Class not found');
+                throw new \Exception('Class not found');
             }
         }
-        Log::debug($command_class);
-//        (new $command_class())->handle();
-
+        Log::debug(json_encode($this->message));
+        (new $command_class())->handle(new Message($this->message));
     }
 }
