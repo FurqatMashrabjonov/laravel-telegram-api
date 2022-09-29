@@ -27,11 +27,10 @@ class CommandHandle
             if (isset(config('telegram.commands')[$this->command])) {
                 $command_class = config('telegram.commands')[$this->command];
             } else {
-//                Log::debug('Class not found');
-                throw new \Exception('Class not found');
+                Log::debug('class topilmadi');
+                return false;
             }
         }
-        Log::debug(json_encode($this->message));
         (new $command_class())->handle(new Message($this->message));
     }
 }
