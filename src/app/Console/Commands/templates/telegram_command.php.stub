@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Telegram\Commands;
+
+use Furqat\LaravelTelegramApi\Command;
+use Furqat\LaravelTelegramApi\Message;
+
+
+class {{command}} extends Command
+{
+    public function handle(Message $message)
+    {
+        //code here
+    }
+}
