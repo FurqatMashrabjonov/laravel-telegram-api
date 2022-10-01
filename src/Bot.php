@@ -2,16 +2,22 @@
 
 namespace Furqat\LaravelTelegramApi;
 
-class Bot
+use Illuminate\Support\Facades\Log;
+
+abstract class Bot
 {
-    private ApiCall $call;
+    private ApiCall $api_call;
 
     public function __construct()
     {
-        $this->call = new ApiCall();
+        $this->api_call = new ApiCall();
     }
-    public function sendMessage($chat_id, $opts){
-//      $this->()
+    public function sendMessage(){
+//        $this->call('sendMessage', $text, );
     }
 
+//    private function call(){
+//        return
+//    }
+//
 }

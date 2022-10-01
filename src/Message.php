@@ -26,4 +26,9 @@ class Message
         return $this->id;
     }
 
+    public function reply($text)
+    {
+
+    }
+
 }

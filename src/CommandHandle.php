@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 class CommandHandle
 {
 
-    protected $command;
+    public $command;
     public $message;
 
     public function __construct($command, $message)
@@ -16,9 +16,6 @@ class CommandHandle
         $this->command = $command;
     }
 
-    /**
-     * @throws \Exception
-     */
     public function handle()
     {
         $command_class = 'App\\Telegram\\Commands\\' . ucfirst($this->command);
