@@ -11,14 +11,14 @@ class Message
     public $text;
     public $entities;
 
-    public function __construct(array $message)
+    public function __construct($message)
     {
-        $this->id = $message['message_id'];
-        $this->from = $message['from'];
-        $this->chat = $message['chat'];
-        $this->date = $message['date'];
-        $this->text = $message['text'];
-        $this->entities = $message['entities'] ?? null;
+        $this->id = $message->message_id;
+        $this->from = $message->from;
+        $this->chat = $message->chat;
+        $this->date = $message->date;
+        $this->text = $message->text;
+        $this->entities = $message->entities ?? null;
     }
 
     public function get()

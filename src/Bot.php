@@ -12,8 +12,8 @@ abstract class Bot
     {
         $this->api_call = new ApiCall();
     }
-    public function sendMessage(){
-//        $this->call('sendMessage', $text, );
+    public function sendMessage($text, ){
+        $this->call('sendMessage', $text, );
     }
 
 //    private function call(){

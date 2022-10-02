@@ -14,15 +14,16 @@ class Parser
 
     public function __construct($request)
     {
-        $this->request = $request->all();
+        $this->request = $request;
     }
 
     public function parse()
     {
-        $text = $this->request['message']['text'];
-        if ($text[0] == '/') {
-            (new CommandHandle(substr($text, 1), $this->request['message']))->handle();
-        }
+        Log::debug(json_encode($this->request->all()));
+//        $text = $this->request->message->text;
+//        if ($text[0] == '/') {
+//            (new CommandHandle(substr($text, 1), $this->request->message))->handle();
+//        }
 
     }
 }
