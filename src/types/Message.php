@@ -1,8 +1,6 @@
 <?php
 
-namespace Furqat\LaravelTelegramApi;
-
-use Illuminate\Support\Facades\Log;
+namespace Furqat\LaravelTelegramApi\types;
 
 class Message
 {

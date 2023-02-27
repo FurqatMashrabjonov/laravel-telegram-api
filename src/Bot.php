@@ -4,7 +4,7 @@ namespace Furqat\LaravelTelegramApi;
 
 use Illuminate\Support\Facades\Log;
 
-abstract class Bot
+class Bot
 {
     private ApiCall $api_call;
 
@@ -12,12 +12,12 @@ abstract class Bot
     {
         $this->api_call = new ApiCall();
     }
-    public function sendMessage($text, ){
-        $this->call('sendMessage', $text, );
+    public function sendMessage($text){
+        $this->call('sendMessage', $text);
     }
 
 //    private function call(){
 //        return
 //    }
-//
+
 }

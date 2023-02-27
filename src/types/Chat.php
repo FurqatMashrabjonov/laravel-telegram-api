@@ -1,6 +1,6 @@
 <?php
 
-namespace Furqat\LaravelTelegramApi;
+namespace Furqat\LaravelTelegramApi\types;
 
 class Chat
 {

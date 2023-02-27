@@ -2,6 +2,7 @@
 
 namespace Furqat\LaravelTelegramApi;
 
+use Furqat\LaravelTelegramApi\types\Message;
 use Illuminate\Support\Facades\Log;
 
 class CommandHandle

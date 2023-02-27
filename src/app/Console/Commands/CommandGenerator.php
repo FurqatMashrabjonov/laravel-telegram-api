@@ -28,7 +28,19 @@ class CommandGenerator extends Command
     public function handle()
     {
         $content = $this->filler();
-        $file_path = config('telegram.commands_path') . '\\' . ucfirst($this->argument('name')) . '.php';
+
+        if (is_dir(config('telegram.commands_path'))) {
+            $file_path = config('telegram.commands_path') . '\\' . ucfirst($this->argument('name')) . '.php';
+
+        } else {
+            if (!mkdir(config('telegram.commands_path'), 0777, true)) {
+                $this->error('Failed to create directories');
+            } else {
+                $file_path = config('telegram.commands_path') . '\\' . ucfirst($this->argument('name')) . '.php';
+
+            }
+        }
+
         if (file_exists($file_path)) {
             $this->error(" ERROR ");
             $this->line("Command already exists");
@@ -36,6 +48,7 @@ class CommandGenerator extends Command
             file_put_contents($file_path, $content);
             $this->info("The command was created successfully!");
         }
+
 
     }
 

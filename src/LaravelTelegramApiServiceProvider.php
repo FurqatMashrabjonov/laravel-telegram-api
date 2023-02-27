@@ -3,6 +3,7 @@
 namespace Furqat\LaravelTelegramApi;
 
 use Furqat\LaravelTelegramApi\app\Console\Commands\CommandGenerator;
+use Furqat\LaravelTelegramApi\app\Console\Commands\Webhook;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelTelegramApiServiceProvider extends ServiceProvider
@@ -27,7 +28,7 @@ class LaravelTelegramApiServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'telegram');
         if ($this->app->runningInConsole()) {
-            $this->commands([ CommandGenerator::class]);
+            $this->commands([ CommandGenerator::class, Webhook::class]);
         }
         $this->publishes([
             __DIR__.'config/telegram.php' => config_path('telegram.php'),

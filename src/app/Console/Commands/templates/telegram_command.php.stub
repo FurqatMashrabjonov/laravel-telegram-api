@@ -10,6 +10,6 @@ class {{command}} extends Command
 {
     public function handle(Message $message)
     {
-        //code here
+        //Code here
     }
 }
