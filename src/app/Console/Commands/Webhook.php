@@ -12,7 +12,7 @@ class Webhook extends Command
      *
      * @var string
      */
-    protected $signature = 'telegram:webhook {token} {url}';
+    protected $signature = 'telegram:webhook {url}';
 
     /**
      * The console command description.
@@ -26,7 +26,11 @@ class Webhook extends Command
      */
     public function handle(): void
     {
-        $response = Http::get('https://api.telegram.org/bot' . $this->argument('token') . '/setWebhook?url=' . $this->argument('url') . '/' . config('telegram.webhook_route'));
-        $this->info($response->body());
+        $response = Http::get('https://api.telegram.org/bot' . config('telegram.token') . '/setWebhook?url=' . $this->argument('url') . '/' . config('telegram.webhook_route'));
+        if ($response->ok())
+            $this->info('Webhook was successfully set');
+        else
+            $this->error('ERROR');
+
     }
 }
