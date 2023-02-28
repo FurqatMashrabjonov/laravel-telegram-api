@@ -1,6 +1,6 @@
 <?php
 
-namespace Furqat\LaravelTelegramApi\types;
+namespace Furqat\LaravelTelegramApi\Types;
 
 class Message
 {

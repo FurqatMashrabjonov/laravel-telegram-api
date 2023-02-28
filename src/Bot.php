@@ -29,11 +29,12 @@ class Bot extends ApiCall
 //        $disableNotification = false
     )
     {
+        Log::debug(json_encode($replyMarkup));
         $this->call('sendMessage', [
             'chat_id' => $chatId,
             'text' => $text,
             'parse_mode' => $parseMode,      //TODO: do it globally
-//            'reply_markup' => json_encode($replyMarkup)
+            'reply_markup' => json_encode($replyMarkup)
         ]);
     }
 

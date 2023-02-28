@@ -2,7 +2,7 @@
 
 namespace Furqat\LaravelTelegramApi;
 
-use Furqat\LaravelTelegramApi\types\Message;
+use Furqat\LaravelTelegramApi\Types\Message;
 use Illuminate\Support\Facades\Log;
 
 class CommandHandle
@@ -25,7 +25,7 @@ class CommandHandle
             if (isset(config('telegram.commands')[$this->command])) {
                 $command_class = config('telegram.commands')[$this->command];
             } else {
-                Log::debug('class topilmadi');
+                Log::debug('Class is not found');
                 return false;
             }
         }
